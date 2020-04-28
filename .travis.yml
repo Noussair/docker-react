@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+bofore_install:
+    - docker build -t nnoussair/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run nnoussair/docker-react npm run test -- --coverage  
