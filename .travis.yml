@@ -1,9 +1,10 @@
 sudo: required
 services:
-    - docker
+  - docker
 
 bofore_install:
-    - docker build -t nnoussair/docker-react -f Dockerfile.dev .
+  - docker build -t nnoussair/docker-react -f Dockerfile.dev .
 
 script:
-    - docker run nnoussair/docker-react npm run test -- --coverage  
+  - docker run nnoussair/docker-react npm run test -- --coverage
+  - "travis_wait 30 sleep 1800 &"
